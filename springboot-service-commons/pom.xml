@@ -5,16 +5,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0</version>
+		<version>4.0.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.commons</groupId>
-	<artifactId>springboot-service-commons</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-service-commons</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.lib.commons.products</groupId>
+	<artifactId>lib-commons.products</artifactId>
+	<version>0.0.2</version>
+	<name>lib-commons.products</name>
+	<description>Common product library</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
+		<lombok.version>1.18.44</lombok.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -26,7 +27,11 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
-
-
 </project>

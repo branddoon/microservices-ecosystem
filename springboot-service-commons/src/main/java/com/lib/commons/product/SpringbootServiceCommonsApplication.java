@@ -1,11 +1,11 @@
-package com.formacionbdi.springboot.app.commons;
+package com.lib.commons.product;
 
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.jdbc.autoconfigure.DataSourceAutoConfiguration;
 
 @SpringBootApplication
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class} )
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
 public class SpringbootServiceCommonsApplication {
 
 

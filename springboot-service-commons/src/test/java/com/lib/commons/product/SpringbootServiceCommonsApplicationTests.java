@@ -1,4 +1,4 @@
-package com.formacionbdi.springboot.app.commons;
+package com.lib.commons.product;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
