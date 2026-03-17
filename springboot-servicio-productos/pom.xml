@@ -6,17 +6,17 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.2</version>
+		<version>4.0.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.productos</groupId>
-	<artifactId>springboot-servicio-productos</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-servicio-productos</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.product.service</groupId>
+	<artifactId>product-service</artifactId>
+	<version>0.0.2</version>
+	<name>product-service</name>
+	<description>Product service</description>
 	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<java.version>17</java.version>
+		<spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -27,7 +27,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -49,12 +48,11 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.formacionbdi.springboot.app.commons</groupId>
-			<artifactId>springboot-service-commons</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<groupId>com.lib.commons.products</groupId>
+			<artifactId>lib-commons.products</artifactId>
+			<version>0.0.2</version>
 		</dependency>
 	</dependencies>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -63,7 +61,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
