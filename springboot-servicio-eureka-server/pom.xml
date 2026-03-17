@@ -6,24 +6,23 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.2</version>
+		<version>4.0.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.formacionbdi.springboot.app.eureka</groupId>
 	<artifactId>springboot-servicio-eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-servicio-eureka-server</name>
-	<description>Demo project for Spring Boot</description>
+	<name>eureka-service-II</name>
+	<description>Eureka service II</description>
 	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<java.version>17</java.version>
+		<spring-cloud.version>2025.1.0</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -51,7 +50,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -60,5 +58,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
