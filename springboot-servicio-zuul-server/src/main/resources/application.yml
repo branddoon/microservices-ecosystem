@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: zuul-service-server
+  cloud:
+    gateway:
+      # ---------------------------------------------------------------------------
+      # Route definitions
+      # Each route maps a URL path pattern to a downstream service registered in
+      # Eureka. The "lb://" scheme activates Spring Cloud LoadBalancer so that
+      # requests are distributed across all healthy instances of the target service.
+      # ---------------------------------------------------------------------------
+      routes:
+        - id: products
+          uri: lb://product-service
+          predicates:
+            - Path=/products
+
+        - id: items
+          uri: lb://item-service
+          predicates:
+            - Path=/list
+
+      # ---------------------------------------------------------------------------
+      # HTTP client timeouts (replaces the deprecated Ribbon timeout properties)
+      # ---------------------------------------------------------------------------
+      httpclient:
+        connect-timeout: 3000        # milliseconds
+        response-timeout: 10s        # Duration format (ISO-8601 or Spring shorthand)
+
+server:
+  port: 8090
+
+logging:
+  file:
+    path: /home/logs
+
+# ---------------------------------------------------------------------------
+# Eureka client configuration
+# ---------------------------------------------------------------------------
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
