@@ -6,77 +6,80 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.5.3</version>
-		<!-- ESTA VERSION DE SPRING BOOT SE UTILIZA PARA HISTRIX		
-		<version>2.3.12.RELEASE</version>-->
-		<relativePath /> <!-- lookup parent from repository -->
+		<version>3.3.6</version>
+		<relativePath />
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.item</groupId>
-	<artifactId>springboot-servicio-item-1</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-servicio-item-1</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.item.service</groupId>
+	<artifactId>item-service-I</artifactId>
+	<version>0.0.2</version>
+	<name>item-service-I</name>
+	<description>Item microservice — aggregates product data with quantity information</description>
 	<properties>
-		<java.version>11</java.version>
-		<!--ESTA VERSION DE SPRING CLOUD SE USA PARA HISTRIX
-		<spring-cloud.version>Hoxton.SR12</spring-cloud.version>-->
-		<spring-cloud.version>2020.0.3</spring-cloud.version>
+		<java.version>17</java.version>
+		<spring-cloud.version>2023.0.3</spring-cloud.version>
 	</properties>
 	<dependencies>
+		<!-- Web layer -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+		<!-- Development tools (hot reload) -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- Testing -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.junit.vintage</groupId>
-					<artifactId>junit-vintage-engine</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
+
+		<!-- OpenFeign declarative REST client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
+
+		<!-- Eureka service discovery client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
-	<!-- ESTA DEPENDENCIA SE USA CON LA VERSION DE SPRING BOOT 2.3.12
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
-		</dependency>
-		-->
-		
+
+		<!-- Bootstrap context support (required for bootstrap.properties) -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-bootstrap</artifactId>
 		</dependency>
-		
+
+		<!-- Circuit breaker via Resilience4j -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-circuitbreaker-resilience4j</artifactId>
 		</dependency>
-		<!-- MARCAMOS EL MICROSERVICIO COMO CLIENTE -->
+
+		<!-- External configuration via Spring Cloud Config Server -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
+
+		<!-- Actuator endpoints for monitoring and management -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
+		<!-- AOP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
 		</dependency>
 	</dependencies>
 

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(java|xml|properties|yml|yaml\\)$\")",
+      "Bash(find C:UsersBrandOneDriveDocumentosdesarrollojavamicroservices-practise-1-20260314T042303Z-3-001microservices-practise-1springboot-servicio-item-1 -type f ! -path */.idea/* ! -path */target/*)"
+    ]
+  }
+}
