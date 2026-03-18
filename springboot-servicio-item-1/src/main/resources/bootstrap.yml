@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: item-service
+---
+spring:
+  profiles:
+    active: dev
+---
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
