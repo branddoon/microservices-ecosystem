@@ -1,0 +1,5 @@
+server:
+  port: 8007
+
+configuracion:
+  texto: Configurando ambiente de produccion

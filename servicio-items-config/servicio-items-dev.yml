@@ -1,0 +1,8 @@
+server:
+  port: 8006
+
+configuracion:
+  texto: Configurando ambiente de desarrollo
+  autor:
+    nombre: brandon jair
+    email: brandon@gmail.com
