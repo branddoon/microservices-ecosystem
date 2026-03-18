@@ -100,9 +100,10 @@ public class ItemController {
 	@GetMapping("/list")
 	public List<Item> list(
 			@RequestParam(name = "name", required = false) String name,
-			@RequestHeader(name = "token-request", required = false) String token) {
+			@RequestHeader(name = "token-request", required = false) String token) throws InterruptedException {
 		log.debug("Request param name: {}", name);
 		log.debug("Request header token-request: {}", token);
+		Thread.sleep(10000);
 		return itemService.findAll();
 	}
 

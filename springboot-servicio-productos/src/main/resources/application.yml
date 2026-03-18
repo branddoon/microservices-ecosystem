@@ -28,4 +28,4 @@ spring:
 # Logging Configuration
 logging:
   level:
-    com.app.products: INFO
+    com.app.products: DEBUG
