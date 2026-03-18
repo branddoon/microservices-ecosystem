@@ -1,60 +1,85 @@
+# ============================================================
+# Application Identity
+# ============================================================
+spring:
+  application:
+    name: service-gateway-server
+
+# ============================================================
+# Server
+# ============================================================
+server:
+  port: 8090
+
+# ============================================================
+# Eureka Client — Service Discovery
+# ============================================================
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+# ============================================================
+# Resilience4j — Circuit Breaker & Time Limiter
+# ============================================================
 resilience4j:
   circuitbreaker:
     configs:
-      defecto:
+      default:
         sliding-window-size: 6
         failure-rate-threshold: 50
         wait-duration-in-open-state: 20s
-        permitted-number-of-calls-in-half-open-state: 4
+        permitted-number-of-calls-in-half-open-state: 3
         slow-call-rate-threshold: 50
         slow-call-duration-threshold: 2s
     instances:
-      productos:
-        base-config: defecto
+      products:
+        base-config: default
   timelimiter:
     configs:
-      defecto:
+      default:
         timeout-duration: 2s
     instances:
-      productos:
-        base-config: defecto
-     
+      products:
+        base-config: default
+---
+# ============================================================
+# Spring Cloud Gateway — Routes
+# NOTE: The 'uri' lb:// values must match the spring.application.name
+#       of each downstream service registered with Eureka.
+# ============================================================
 spring:
   cloud:
     gateway:
       routes:
-      - id: servicio-productos
-        uri: lb://servicio-productos
-        predicates:
-        - Path=/api/productos/**
-       # - Header=token,\d+
-     #   - Header=Content-Type,application/json
-       # - Method=GET,POST
-      #  - Query=color
-#        - Query=color, verde
-        #- Cookie=color, azul
-     #   - Cookie=color, azul
-        filters:
-        #- CircuitBreaker=productos
-        - name: CircuitBreaker
-          args:
-            name: productos
-            statusCodes: 500 
-            #fallbackUri: forward:/api/items/ver/2/cantidad/5
-        - StripPrefix=2
-        - EjemploCookie=Hola mi mensaje personalizado, usuario, Brandon
-#        - name: Ejemplo
-#          args: 
-#            mensaje: Hola mi mensaje personalizado
-#            cookieNombre: usuario
-#            cookieValor: BrandonGrande
-      - id: servicio-items
-        uri: lb://servicio-items
-        predicates:
-        - Path=/api/items/**
-        filters:
-        - StripPrefix=2  
-        #- AddRequestHeader=token-request,12345
-        #- AddResponseHeader=token-response,54321
-        #- SetResponseHeader=Content-type,text/plain
-        #- AddRequestParameter=nombre,andres 
+        # --- Products service ---
+        - id: product-service
+          uri: lb://product-service
+          predicates:
+            - Path=/products
+          filters:
+            # Circuit breaker
+            - name: CircuitBreaker
+              args:
+                name: products
+                fallbackUri: forward:/fallback/orders
+
+        # --- Items service ---
+        - id: item-service
+          uri: lb://item-service
+          predicates:
+            - Path=/list
+          filters:
+            # Circuit breaker
+            - name: CircuitBreaker
+              args:
+                name: products
+                fallbackUri: forward:/fallback/orders
+logging:
+  level:
+    com.app.gtw.service: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.cloud.circuitbreaker: DEBUG
+    io.github.resilience4j: DEBUG
+    io.github.resilience4j.circuitbreaker: DEBUG
+    org.springframework.aop: DEBUG
