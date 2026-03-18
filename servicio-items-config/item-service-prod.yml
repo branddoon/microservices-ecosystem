@@ -8,7 +8,7 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka
+      defaultZone:
 
 management:
   endpoints:
@@ -48,12 +48,3 @@ logging:
     io.github.resilience4j: DEBUG
     io.github.resilience4j.circuitbreaker: DEBUG
     org.springframework.aop: DEBUG
----
-spring:
-  profiles:
-    active: dev
----
-spring:
-  cloud:
-    config:
-      uri: http://localhost:8888

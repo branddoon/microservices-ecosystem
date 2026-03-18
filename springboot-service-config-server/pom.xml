@@ -5,24 +5,23 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.7.0</version>
+		<version>3.4.3</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.formacionbdi.springboot.app.config</groupId>
-	<artifactId>springboot-service-config-server</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-service-config-server</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.app.config.server</groupId>
+	<artifactId>app-config-server</artifactId>
+	<version>0.0.2</version>
+	<name>app-config-server</name>
+	<description>Config server app</description>
 	<properties>
-		<java.version>11</java.version>
-		<spring-cloud.version>2021.0.3</spring-cloud.version>
+		<java.version>17</java.version>
+		<spring-cloud.version>2024.0.1</spring-cloud.version>
 	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-config-server</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -46,7 +45,6 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -55,5 +53,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

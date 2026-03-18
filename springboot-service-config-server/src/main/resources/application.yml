@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/branddoon/microservices-ecosystem.git
+          default-label: main
+          clone-on-start: true
+          search-paths: servicio-items-config
+
+server:
+  port: 8888

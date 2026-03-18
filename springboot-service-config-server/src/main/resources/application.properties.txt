@@ -1,7 +1,0 @@
-spring.application.name=config-server
-server.port=8888
-
-##SERVIDOR LOCAL
-##spring.cloud.config.server.git.uri=file:///C:/Users/Brand/Desktop/config
-
-spring.cloud.config.server.git.uri=https://github.com/brandon-tutorials/servicio-items-config
