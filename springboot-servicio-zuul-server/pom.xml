@@ -10,10 +10,10 @@
         <relativePath/>
     </parent>
 
-    <groupId>com.formacionbdi.springboot.app.zuul</groupId>
-    <artifactId>springboot-servicio-zuul-server</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-servicio-zuul-server</name>
+    <groupId>com.app.zuul.service</groupId>
+    <artifactId>springboot-zuul-service</artifactId>
+    <version>0.0.2</version>
+    <name>zuul-service</name>
     <description>API Gateway service using Spring Cloud Gateway with Eureka service discovery</description>
 
     <properties>

@@ -30,10 +30,6 @@ spring:
 server:
   port: 8090
 
-logging:
-  file:
-    path: /home/logs
-
 # ---------------------------------------------------------------------------
 # Eureka client configuration
 # ---------------------------------------------------------------------------
@@ -41,3 +37,8 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+
+logging:
+  level:
+    com.item.service: DEBUG
+    org.springframework.web: DEBUG
